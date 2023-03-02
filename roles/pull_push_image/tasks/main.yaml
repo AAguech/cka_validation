@@ -1,0 +1,25 @@
+---
+
+- name: Log into DockerHub
+  docker_login:
+    username: aguech
+    password: Lasmar.eline2021
+    email: amira.aguech.lasmar@gmail.com
+
+- name: pull an image
+  docker_image:
+    name: hello-world
+    pull: yes
+
+- name: Log into jfrog
+  docker_login:
+    registry: sncf.jfrog.io/docker-amira-local/
+    username: amira.aguech.lasmar@gmail.com
+    password: Lasmar&eline2021
+    reauthorize: yes
+
+- name: Build an image and push it to a private repo
+  docker_image:
+    name: hello-world
+    repository: sncf.jfrog.io/docker-amira-local/hello-world:V1
+    push: yes

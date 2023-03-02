@@ -1,0 +1,4 @@
+---
+- hosts: local
+  roles:
+    - role: pull_push_image
